@@ -13,5 +13,9 @@
         <Content Include="MyNumberPS.dll-Help.xml">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
+        <None Remove="MyNumberPS.psd1" />
+        <Content Include="MyNumberPS.psd1">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
     </ItemGroup>
 </Project>
