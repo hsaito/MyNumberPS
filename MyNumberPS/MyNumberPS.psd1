@@ -1,11 +1,18 @@
 @{
     RootModule = 'MyNumberPS.dll'
-    ModuleVersion = '1.0.0.0'
-    CmdletsToExport = '*'
+    ModuleVersion = '1.0.0.2'
+    FunctionsToExport = @(
+            'Get-MyNumber'
+            'Test-MyNumber'
+        )
+    CmdletsToExport   = '*'
+    VariablesToExport = '*'
+    AliasesToExport   = '*'
     GUID = 'de6fc708-4172-4685-abf4-2cd5930e6ba9'
     Author = 'Hideki Saito'
-    Company =
     Description = 'MyNumber Module for PowerShell'
+    PowerShellVersion = '6.0'
+    CompatiblePSEditions = 'Core'
     Copyright = '(c) 2018 Hideki Saito. All rights reserved.'
     PrivateData = @{
         PSData = @{
