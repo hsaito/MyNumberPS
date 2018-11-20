@@ -1,6 +1,6 @@
 @{
     RootModule = 'MyNumberPS.dll'
-    ModuleVersion = '1.0.0.2'
+    ModuleVersion = '1.1.0.0'
     FunctionsToExport = @(
             'Get-MyNumber'
             'Test-MyNumber'

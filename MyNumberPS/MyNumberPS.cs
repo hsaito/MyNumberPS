@@ -10,26 +10,31 @@ using MyNumberNET;
 namespace MyNumberPS
 {
     [Cmdlet(VerbsCommon.Get, "MyNumber")]
-    [OutputType(typeof(MyNumberData))]
+    [OutputType(typeof(int[]))]
+    [OutputType(typeof(string))]
     public class GetMyNumber : Cmdlet
     {
+        [ValidateNotNullOrEmpty]
+        [Parameter(Mandatory = false, HelpMessage = "Generate MyNumber in string format.")]
+        public SwitchParameter String { get; set; }
+    
         private MyNumber _myNumber;
-        private MyNumberData _result;
         
         protected override void BeginProcessing()
         {
             _myNumber = new MyNumber();
-            _result = new MyNumberData();
         }
 
         protected override void ProcessRecord()
         {
-            _result.NumberSequence = _myNumber.GenerateRandomNumber();
-        }
-
-        protected override void EndProcessing()
-        {
-            WriteObject(_result);
+            if (String)
+            {
+                WriteObject(string.Join("", _myNumber.GenerateRandomNumber()));
+            }
+            else
+            {
+                WriteObject(_myNumber.GenerateRandomNumber());
+            }
         }
     }
 
@@ -46,21 +51,14 @@ namespace MyNumberPS
         [ValidateNotNullOrEmpty]
         [Parameter(Mandatory = false,
             HelpMessage =
-                "Type of data input (data for MyNumberData, string for text string, and array for integer array")]
-        [ValidateSet("data", "string", "array")]
-        public string DataType = "data";
+                "Type of data input (string for text string, and array for integer array)")]
+        [ValidateSet("string", "array")]
+        public string DataType = "array";
 
         protected override void ProcessRecord()
         {
             switch (DataType)
             {
-                case "data":
-                {
-                    var data = (MyNumberData) MyNumberData;
-                    _result = MyNumber.VerifyNumber(data.NumberSequence);
-                    break;
-                }
-
                 case "string":
                 {
                     var data = (string) MyNumberData;
@@ -80,14 +78,5 @@ namespace MyNumberPS
         {
             WriteObject(_result);
         }
-    }
-}
-
-public class MyNumberData
-{
-    public int[] NumberSequence;
-    public override string ToString()
-    {
-        return string.Join("", NumberSequence);
     }
 }

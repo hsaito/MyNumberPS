@@ -21,42 +21,31 @@ This command verifies if the supplied MyData is a correctly formatted number or 
 
 ## EXAMPLES
 
-### Example 1
+### Example 1: Check array of integer of MyNumber digits (* to be replaced with actual MyNumber digits.)
 ```powershell
-PS C:\> Test-MyNumber "************" -DataType string
+$myNumberArray = *,*,*,*,*,*,*,*,*,*,*,*
+Test-MyNumber $myNumberArray -DataType array
 ```
 
-This example checks to see if the number sequence supplied as a string is valid. (************ to be replaced with actual number to test.)
-
-### Example 2
+### Example 2: Check string of MyNumber digits (* to be replaced with actual MyNumber digits.)
 ```powershell
-PS C:\> $myNumberArray = *,*,*,*,*,*,*,*,*,*,*,*
-PS C:\> Test-MyNumber $myNumberArray -DataType array
+Test-MyNumber "************" -DataType string
 ```
-
-This example checks to see if the number sequence in integer array is valid. (* to be replaced with numerical digit.)
-
-### Example 3
-```powershell
-PS C:\> Test-MyNumber $mydataArray
-```
-
-If you have previously generated MyNumberData array, it can be checked.
 
 ## PARAMETERS
 
 ### -DataType
-Type of data input (data for MyNumberData, string for text string, and array for integer array
+Type of data input (string for text string, and array for integer array)
 
 ```yaml
 Type: String
 Parameter Sets: (All)
 Aliases:
-Accepted values: data, string, array
+Accepted values: string, array
 
 Required: False
 Position: Named
-Default value: data
+Default value: array
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -77,8 +66,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
@@ -86,6 +74,9 @@ For more information, see about_CommonParameters (http://go.microsoft.com/fwlink
 ## OUTPUTS
 
 ### System.Boolean
+`True` if MyNumber supplied is valid, `False` if not.
+
 ## NOTES
 
 ## RELATED LINKS
+[Get-MyNumber](Get-MyNumber)

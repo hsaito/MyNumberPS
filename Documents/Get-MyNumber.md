@@ -8,38 +8,57 @@ schema: 2.0.0
 # Get-MyNumber
 
 ## SYNOPSIS
-Get randomly generated MyNumber.
+Gets randomly generated MyNumber.
 
 ## SYNTAX
 
 ```
-Get-MyNumber [<CommonParameters>]
+Get-MyNumber [-String] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-This command generates randomized MyNumber for testing. Result is generated as MyNumberData which capsulates integer array.
+The `Get-MyNumber` cmdlet gets the randomized MyNumber for testing. Result is generated as MyNumberData which capsulates integer array.)
 
 ## EXAMPLES
 
-### Example 1
+### Example 1: Get random MyNumber
 ```powershell
-PS C:\> Get-MyNumber
+Get-MyNumber
 ```
-
-Generates Mynumber
 
 ## PARAMETERS
 
+### -String
+Generate MyNumber in string format.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
 ### None
+
 ## OUTPUTS
 
-### MyNumberData
+### System.Int32[]
+Array of MyNumber digits in integer.
+
+### System.String
+If you use the `-String` parameter, `Get-MyNumber` returns MyNumber as a string.
+
 ## NOTES
 
 ## RELATED LINKS
+[Test-MyNumber](Test-MyNumber)
