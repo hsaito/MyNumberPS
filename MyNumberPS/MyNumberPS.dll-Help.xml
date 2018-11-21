@@ -86,6 +86,10 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
+        <maml:linkText>Get-MyNumberRange</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
         <maml:linkText>Test-MyNumber</maml:linkText>
         <maml:uri></maml:uri>
       </maml:navigationLink>
