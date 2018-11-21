@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Management.Automation;
-using System.Runtime.Serialization;
-using System.Security.Cryptography;
 using MyNumberNET;
 
 namespace MyNumberPS
@@ -14,12 +10,12 @@ namespace MyNumberPS
     [OutputType(typeof(string))]
     public class GetMyNumber : Cmdlet
     {
+        private MyNumber _myNumber;
+
         [ValidateNotNullOrEmpty]
         [Parameter(Mandatory = false, HelpMessage = "Generate MyNumber in string format.")]
         public SwitchParameter String { get; set; }
-    
-        private MyNumber _myNumber;
-        
+
         protected override void BeginProcessing()
         {
             _myNumber = new MyNumber();
@@ -28,13 +24,72 @@ namespace MyNumberPS
         protected override void ProcessRecord()
         {
             if (String)
-            {
                 WriteObject(string.Join("", _myNumber.GenerateRandomNumber()));
+            else
+                WriteObject(_myNumber.GenerateRandomNumber());
+        }
+    }
+
+    [Cmdlet(VerbsCommon.Get, "MyNumberRange")]
+    [OutputType(typeof(int[][]))]
+    [OutputType(typeof(string))]
+    public class GetMyNumberRange : Cmdlet
+    {
+        private MyNumber _myNumber;
+
+        [ValidateNotNullOrEmpty]
+        [Parameter(Mandatory = false, HelpMessage = "Generate MyNumber in string format.")]
+        public SwitchParameter String { get; set; }
+
+        [Parameter(Position = 0, Mandatory = true, HelpMessage = "Minimum value for MyNumber generation.")]
+        public ulong Minimum { get; set; }
+
+        [Parameter(Position = 1, Mandatory = true, HelpMessage = "Maximum value for MyNumber generation.")]
+        public ulong Maximum { get; set; }
+
+        protected override void BeginProcessing()
+        {
+            _myNumber = new MyNumber();
+            if (Minimum > 999999999999 || Maximum > 999999999999)
+                throw new MyNumberPSMyNumberOutOfBoundException("Range value out of bound.");
+        }
+
+        protected override void ProcessRecord()
+        {
+            if (String)
+            {
+                var result = new List<string>();
+                for (var i = Minimum; i < Maximum; i++)
+                    if (MyNumber.VerifyNumber(Fill(i.ToString()).Select(c => c - '0').ToArray()))
+                        result.Add(Fill(i.ToString()));
+
+                WriteObject(result.ToArray());
             }
             else
             {
-                WriteObject(_myNumber.GenerateRandomNumber());
+                var result = new List<int[]>();
+
+                for (var i = Minimum; i < Maximum; i++)
+                {
+                    var numArray = Fill(i.ToString()).Select(c => c - '0').ToArray();
+                    if (MyNumber.VerifyNumber(numArray)) result.Add(numArray);
+                }
+
+                WriteObject(result.ToArray());
             }
+        }
+
+        private string Fill(string input)
+        {
+            var reminder = 12;
+
+            reminder = reminder - input.Length;
+            if (reminder == 0) return input;
+            for (var i = 0;
+                i < reminder;
+                i++)
+                input = "0" + input;
+            return input;
         }
     }
 
@@ -43,17 +98,17 @@ namespace MyNumberPS
     public class TestMyNumber : Cmdlet
     {
         private bool _result;
-        
-        [ValidateNotNullOrEmpty]
-        [Parameter(Position = 0, Mandatory = true, HelpMessage = "MyNumber to test.")]
-        public object MyNumberData { get; set; }
-        
+
         [ValidateNotNullOrEmpty]
         [Parameter(Mandatory = false,
             HelpMessage =
                 "Type of data input (string for text string, and array for integer array)")]
         [ValidateSet("string", "array")]
         public string DataType = "array";
+
+        [ValidateNotNullOrEmpty]
+        [Parameter(Position = 0, Mandatory = true, HelpMessage = "MyNumber to test.")]
+        public object MyNumberData { get; set; }
 
         protected override void ProcessRecord()
         {

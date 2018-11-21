@@ -28,7 +28,8 @@ namespace MyNumberPS
         {
         }
 
-        protected MyNumberPSNegativeMyNumberException(SerializationInfo info, StreamingContext context) : base(info, context)
+        protected MyNumberPSNegativeMyNumberException(SerializationInfo info, StreamingContext context) : base(info,
+            context)
         {
         }
 
@@ -36,7 +37,29 @@ namespace MyNumberPS
         {
         }
 
-        public MyNumberPSNegativeMyNumberException(string message, Exception innerException) : base(message, innerException)
+        public MyNumberPSNegativeMyNumberException(string message, Exception innerException) : base(message,
+            innerException)
+        {
+        }
+    }
+
+    public class MyNumberPSMyNumberOutOfBoundException : MyNumberPSException
+    {
+        public MyNumberPSMyNumberOutOfBoundException()
+        {
+        }
+
+        protected MyNumberPSMyNumberOutOfBoundException(SerializationInfo info, StreamingContext context) : base(info,
+            context)
+        {
+        }
+
+        public MyNumberPSMyNumberOutOfBoundException(string message) : base(message)
+        {
+        }
+
+        public MyNumberPSMyNumberOutOfBoundException(string message, Exception innerException) : base(message,
+            innerException)
         {
         }
     }
