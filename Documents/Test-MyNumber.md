@@ -81,3 +81,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## RELATED LINKS
 
 [Get-MyNumber](Get-MyNumber)
+[Get-MyNumberRange](Get-MyNumberRange)

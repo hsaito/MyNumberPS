@@ -96,3 +96,5 @@ If you use the `-String` parameter, `Get-MyNumberRange` returns array of MyNumbe
 ## NOTES
 
 ## RELATED LINKS
+[Get-MyNumber](Get-MyNumber)
+[Test-MyNumber](Test-MyNumber)
