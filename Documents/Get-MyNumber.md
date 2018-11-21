@@ -61,4 +61,5 @@ If you use the `-String` parameter, `Get-MyNumber` returns MyNumber as a string.
 ## NOTES
 
 ## RELATED LINKS
+
 [Test-MyNumber](Test-MyNumber)

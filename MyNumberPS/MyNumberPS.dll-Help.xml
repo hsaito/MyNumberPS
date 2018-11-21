@@ -93,6 +93,147 @@
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
+      <command:name>Get-MyNumberRange</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>MyNumberRange</command:noun>
+      <maml:description>
+        <maml:para>Gets MyNumber(s) from the range of values.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The `Get-MyNumberRange` cmdlet gets MyNumber(s) from the ranges of the numbers.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-MyNumberRange</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+          <maml:name>Minimum</maml:name>
+          <maml:Description>
+            <maml:para>Minimum value for MyNumber generation.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">UInt64</command:parameterValue>
+          <dev:type>
+            <maml:name>UInt64</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+          <maml:name>Maximum</maml:name>
+          <maml:Description>
+            <maml:para>Maximum value for MyNumber generation.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">UInt64</command:parameterValue>
+          <dev:type>
+            <maml:name>UInt64</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>String</maml:name>
+          <maml:Description>
+            <maml:para>Generate MyNumber in string format.</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+        <maml:name>Maximum</maml:name>
+        <maml:Description>
+          <maml:para>Maximum value for MyNumber generation.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">UInt64</command:parameterValue>
+        <dev:type>
+          <maml:name>UInt64</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+        <maml:name>Minimum</maml:name>
+        <maml:Description>
+          <maml:para>Minimum value for MyNumber generation.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">UInt64</command:parameterValue>
+        <dev:type>
+          <maml:name>UInt64</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>String</maml:name>
+        <maml:Description>
+          <maml:para>Generate MyNumber in string format.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Int32[][]</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para>Array of array of MyNumber digits in integer.</maml:para>
+        </maml:description>
+      </command:returnValue>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para>If you use the `-String` parameter, `Get-MyNumberRange` returns array of MyNumber as a string.</maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>Example 1: Get MyNumbers in range between 100000000000 and 100000000200 (in integer array format)</maml:title>
+        <dev:code>Get-MyNumberRange -Minimum 100000000000 -Maximum 100000000200</dev:code>
+        <dev:remarks>
+          <maml:para></maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>Example 2: Get MyNumbers in range between 100000000000 and 100000000200 (in string format)</maml:title>
+        <dev:code>Get-MyNumberRange -Minimum 100000000000 -Maximum 100000000200 -String</dev:code>
+        <dev:remarks>
+          <maml:para></maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks />
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
       <command:name>Test-MyNumber</command:name>
       <command:verb>Test</command:verb>
       <command:noun>MyNumber</command:noun>

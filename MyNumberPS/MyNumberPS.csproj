@@ -9,9 +9,9 @@
         <PackageId>MyNumberPS</PackageId>
         <Description>MyNumber PowerShell Module.</Description>
         <Copyright>Copyright (c) 2018 Hideki Saito</Copyright>
-        <Version>1.1.0.0</Version>
-        <AssemblyVersion>1.1.0.0</AssemblyVersion>
-        <FileVersion>1.1.0.0</FileVersion>
+        <Version>1.2.0.0</Version>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+        <FileVersion>1.2.0.0</FileVersion>
         <TargetFramework>netcoreapp2.1</TargetFramework>
     </PropertyGroup>
 

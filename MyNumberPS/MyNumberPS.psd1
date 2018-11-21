@@ -1,9 +1,10 @@
 @{
     RootModule = 'MyNumberPS.dll'
-    ModuleVersion = '1.1.0.0'
+    ModuleVersion = '1.2.0.0'
     FunctionsToExport = @(
             'Get-MyNumber'
             'Test-MyNumber'
+            'Get-MyNumberRange'
         )
     CmdletsToExport   = '*'
     VariablesToExport = '*'
