@@ -1,6 +1,6 @@
 @{
     RootModule = 'MyNumberPS.dll'
-    ModuleVersion = '1.2.1.0'
+    ModuleVersion = '1.2.2.0'
     FunctionsToExport = @(
             'Get-MyNumber'
             'Test-MyNumber'
@@ -14,11 +14,10 @@
     Description = 'MyNumber Module for PowerShell'
     PowerShellVersion = '6.0'
     CompatiblePSEditions = 'Core'
-    Copyright = '(c) 2018 Hideki Saito. All rights reserved.'
+    Copyright = '(c) 2019 Hideki Saito. All rights reserved.'
     PrivateData = @{
         PSData = @{
             ProjectUri = 'https://github.com/hsaito/MyNumberPS/'
-            LicenseUri = 'https://github.com/hsaito/MyNumberPS/blob/master/LICENSE'
             ReleaseNotes = ''
         }
     }
