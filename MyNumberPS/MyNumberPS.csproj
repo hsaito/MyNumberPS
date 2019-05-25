@@ -8,7 +8,7 @@
         <Product>Hideki Saito</Product>
         <PackageId>MyNumberPS</PackageId>
         <Description>MyNumber PowerShell Module.</Description>
-        <Copyright>Copyright (c) 2018 Hideki Saito</Copyright>
+        <Copyright>Copyright (c) 2019 Hideki Saito</Copyright>
         <Version>1.2.2.0</Version>
         <AssemblyVersion>1.2.2.0</AssemblyVersion>
         <FileVersion>1.2.2.0</FileVersion>
