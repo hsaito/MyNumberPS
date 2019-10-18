@@ -8,18 +8,25 @@
         <Product>Hideki Saito</Product>
         <PackageId>MyNumberPS</PackageId>
         <Description>MyNumber PowerShell Module.</Description>
-        <Copyright>Copyright (c) 2018 Hideki Saito</Copyright>
-        <Version>1.2.1.0</Version>
-        <AssemblyVersion>1.2.1.0</AssemblyVersion>
-        <FileVersion>1.2.1.0</FileVersion>
+        <Copyright>Copyright (c) 2019 Hideki Saito</Copyright>
+        <Version>1.2.3.0</Version>
+        <AssemblyVersion>1.2.3.0</AssemblyVersion>
+        <FileVersion>1.2.3.0</FileVersion>
         <TargetFramework>netcoreapp3.0</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.PowerShell.SDK" Version="6.1.1" />
+      <PackageReference Include="Microsoft.PowerShell.SDK" Version="6.2.3" />
       <PackageReference Include="MyNumberNET" Version="1.0.5" />
     </ItemGroup>
 
+    <PropertyGroup>
+        <Deterministic>true</Deterministic>
+        <DeterministicSourceRoot>/_/</DeterministicSourceRoot>
+        <RepoRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\..\'))</RepoRoot>
+        <PathMap>$(RepoRoot)=$(DeterministicSourceRoot)</PathMap>
+    </PropertyGroup>
+    
     <ItemGroup>
         <Content Include="MyNumberPS.dll-Help.xml">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
