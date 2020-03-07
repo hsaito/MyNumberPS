@@ -12,7 +12,7 @@
         <Version>1.2.3.0</Version>
         <AssemblyVersion>1.2.3.0</AssemblyVersion>
         <FileVersion>1.2.3.0</FileVersion>
-        <TargetFramework>netcoreapp3.0</TargetFramework>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
