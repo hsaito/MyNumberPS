@@ -1,6 +1,7 @@
 using System;
 using System.Runtime.Serialization;
 
+#pragma warning disable SYSLIB0051
 namespace MyNumberPS
 {
     public class MyNumberPSException : Exception
@@ -64,3 +65,4 @@ namespace MyNumberPS
         }
     }
 }
+#pragma warning restore SYSLIB0051
